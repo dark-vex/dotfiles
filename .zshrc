@@ -7,16 +7,14 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Minimal - Theme Settings
-export MNML_INSERT_CHAR="$"
-export MNML_PROMPT=(mnml_git mnml_keymap)
-export MNML_RPROMPT=('mnml_cwd 20')
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+#ZSH_THEME="robbyrussell"
+
+ZSH_THEME="agnoster"
+DEFAULT_USER=$USER
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -31,13 +29,14 @@ ZSH_THEME="minimal"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -52,9 +51,6 @@ ZSH_THEME="minimal"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -78,7 +74,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(artisan git)
+plugins=(git git-prompt kube-ps1 zsh-interactive-cd vscode terraform gcloud 1password kubectl chucknorris brew history fzf kops kubectx oc sublime)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -99,6 +95,9 @@ export LANG=en_US.UTF-8
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+# Wireshark TLS decryption
+# https://wiki.wireshark.org/TLS#tls-decryption
+export SSLKEYLOGFILE=~/.ssl-key.log
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -109,34 +108,91 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Herd injected PHP binary.
-export PHP_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/":$PHP_INI_SCAN_DIR
+# K8s completion not needed with oh-my-zsh kubectl plugin
+#[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+[[ /usr/local/bin/eksctl ]] && source <(eksctl completion zsh)
 
-# Herd injected NVM configuration
-export NVM_DIR="$HOME/Library/Application Support/Herd/config/nvm"
+#. $(pack completion --shell zsh)
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# SeKey ssh auth with touch-id
+export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
 
-[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+# Git completion
+fpath=(~/.zsh $fpath)
 
-# Herd injected PHP 7.4 configuration.
-export HERD_PHP_74_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/74/"
+# SDC-Cli
+# eval "$(_SDC_CLI_COMPLETE=source_zsh sdc-cli)"
+##export PATH="/usr/local/sbin:$PATH"
 
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/83/"
+# Ansible multi thread
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/82/"
+# Kubernetes Context and Namespace info
+source $ZSH/plugins/kube-ps1/kube-ps1.plugin.zsh
+RPROMPT='[%D{%f/%m/%y} %D{%K:%M:%S}]'$RPROMPT
+PROMPT='$(kube_ps1)$(tf_prompt_info)'$PROMPT
 
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/81/"
+# New line for ZSH 
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+      print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+      print -n "%{%k%}"
+  fi
 
-# Herd injected PHP 8.0 configuration.
-export HERD_PHP_80_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/80/"
+  print -n "%{%f%}"
+  CURRENT_BG='' 
 
-# Herd injected PHP binary.
-export PATH="/Users/driesvints/Library/Application Support/Herd/bin/":$PATH
+  #Adds the new line and ➜ as the start character.
+  printf "\n ➜";
+}
 
+# Daniele shortcuts for moving one word backward/forward and moving to beginning/end of line
+# https://stackoverflow.com/a/10485061/6544892
+# https://coderwall.com/p/a8uxma/zsh-iterm2-osx-shortcuts
 
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/driesvints/Library/Application Support/Herd/config/php/84/"
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+# Configure gopath
+export GOPATH=$HOME/go
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# ASDF Kubectl version switcher
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# One Password CLI
+source ~/.config/op/plugins.sh
+
+# Install a new Kubectl version using asdf and fzf
+ai() {
+  local name
+  if [[ $# -eq 0 ]]; then
+    name=$(asdf plugin list | fzf)
+  else
+    name=$1
+  fi
+  asdf install $name $({ comm -23 <(asdf list all $name | sort --version-sort) <(asdf list $name | awk '{print $1}' | sort --version-sort); echo "latest"; } | fzf)
+}
+
+# Switch to a new Kubectl version using asdf and fzf
+au() {
+  local name
+  if [[ $# -eq 0 ]]; then
+    name=$(asdf plugin list | fzf)
+  else
+    name=$1
+  fi
+  local current=$(asdf current $name | awk '{print $2}')
+  #asdf global $name $({asdf list $name | awk '{print $1}' | grep -v "^\*"; echo "latest"; } | fzf)
+  ##asdf local $name $({asdf list $name | awk '{print $1}' | grep -v "^\*"; echo "latest"; } | fzf)
+  asdf set $name $({asdf list $name | awk '{print $1}' | grep -v "^\*"; echo "latest"; } | fzf)
+}
+
+# ZSH Autosuggestion 2024-05-24
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Increase history size
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY

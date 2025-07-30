@@ -1,85 +1,181 @@
 # Taps
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'stripe/stripe-cli'
+tap "fluxcd/tap"
+tap "hashicorp/tap"
+tap "homebrew/cask-fonts"
+tap "homeport/tap"
+tap "otterize/otterize"
+tap "soluble-ai/kubetap"
 
 # Binaries
-brew 'awscli'
-brew 'bash' # Latest Bash version
-brew 'bat' # Used for spatie/visit
-brew 'coreutils' # Those that come with macOS are outdated
-brew 'ffmpeg'
-brew 'gh'
-brew 'git'
-brew 'grep'
-brew 'httpie'
-brew 'jq' # Used for spatie/visit
-brew 'mackup'
-brew 'mas' # Mac App Store manager
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew 'stripe/stripe-cli/stripe'
-brew 'stripe/stripe-mock/stripe-mock'
-brew 'svn' # Needed to install fonts
-
-# Spatie Medialibrary
-brew 'jpegoptim'
-brew 'optipng'
-brew 'pngquant'
-brew 'svgo'
-brew 'gifsicle'
-
-# Development
-brew 'imagemagick'
-brew 'yarn'
+brew "amazon-ecs-cli"
+brew "ansible-lint"
+brew "ansible"
+brew "argocd"
+brew "asdf"
+brew "aws-iam-authenticator"
+brew "awscli"
+brew "azure-cli"
+brew "bash-completion"
+brew "bash-git-prompt"
+brew "bash"
+brew "bfg"
+brew "btop"
+brew "butane"
+brew "certbot"
+brew "chart-testing"
+brew "colima"
+brew "conftest"
+brew "coreutils"
+brew "cowsay"
+brew "eksctl"
+brew "ffmpeg"
+brew "fluxcd/tap/flux"
+brew "fluxctl"
+brew "fortune"
+brew "fzf"
+brew "ggshield"
+brew "gh"
+brew "git-filter-repo"
+brew "git"
+brew "gitleaks"
+brew "gnupg"
+brew "go"
+brew "grpcurl"
+brew "hashicorp/tap/packer"
+brew "hashicorp/tap/terraform"
+brew "hcloud"
+brew "helm"
+brew "homeport/tap/dyff"
+brew "htop"
+brew "iftop"
+brew "imagemagick"
+brew "ipinfo-cli"
+brew "ipmitool"
+brew "ipython"
+brew "istioctl"
+brew "jq"
+brew "juju"
+brew "k9s"
+brew "kind"
+brew "kompose"
+brew "kops"
+brew "krew"
+brew "kube-ps1"
+brew "kubectx"
+brew "kubernetes-cli"
+brew "kubetail"
+brew "kustomize"
+brew "libbtbb"
+brew "libmagic"
+brew "lima"
+brew "lnav"
+brew "minikube"
+brew "mtr"
+brew "nmap"
+brew "oci-cli"
+brew "otterize/otterize/otterize-cli"
+brew "pango"
+brew "pinentry-mac"
+brew "pulumi"
+brew "pwgen"
+brew "qemu"
+brew "restic"
+brew "sipcalc"
+brew "skopeo"
+brew "sl"
+brew "stern"
+brew "sysdig"
+brew "tbb"
+brew "tcptraceroute"
+brew "telnet"
+brew "terraformer"
+brew "terragrunt"
+brew "tesseract"
+brew "thefuck"
+brew "tmate"
+brew "velero"
+brew "virtualenv"
+brew "wakeonlan"
+brew "watch"
+brew "websocat"
+brew "wget"
+brew "x264"
+brew "x265"
+brew "yq"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh"
 
 # Apps
 cask '1password'
 brew '1password-cli'
-cask 'caffeine'
-cask 'discord'
-cask 'docker'
-cask 'figma'
+cask "fing-cli"
+cask "fing"
 cask 'firefox'
-cask 'github'
+cask "gcloud-cli"
 cask 'google-chrome'
-cask 'helo'
-cask 'herd'
-cask 'httpie'
-cask 'imageoptim'
-cask 'loom'
-cask 'pastebot'
-cask 'reflex'
-cask 'screen-studio'
-cask 'slack'
-cask 'tableplus'
-cask 'telegram-desktop'
-cask 'the-unarchiver'
-cask 'tinkerwell'
-cask 'transmit'
-cask 'tunnelbear'
-cask 'tuple'
+cask "sekey"
+cask "tunnelblick"
 cask 'visual-studio-code'
-cask 'zoom'
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
 
 # Fonts
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask "font-meslo-for-powerline"
+cask "font-powerline-symbols"
+cask "font-roboto"
+
+# VSCode Extensions
+vscode "1password.op-vscode"
+vscode "42crunch.vscode-openapi"
+vscode "adamhartford.vscode-base64"
+vscode "astro-build.astro-vscode"
+vscode "docker.docker"
+vscode "eamodio.gitlens"
+vscode "github.copilot-chat"
+vscode "github.copilot"
+vscode "github.vscode-github-actions"
+vscode "github.vscode-pull-request-github"
+vscode "golang.go"
+vscode "hashicorp.terraform"
+vscode "humao.rest-client"
+vscode "iliazeus.vscode-ansi"
+vscode "mattfoulks.har-analyzer"
+vscode "mechatroner.rainbow-csv"
+vscode "mindaro-dev.file-downloader"
+vscode "mohsen1.prettify-json"
+vscode "ms-azuretools.vscode-azureresourcegroups"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-ceintl.vscode-language-pack-it"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.debugpy"
+vscode "ms-python.flake8"
+vscode "ms-python.isort"
+vscode "ms-python.pylint"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.makefile-tools"
+vscode "ms-vscode.vscode-serial-monitor"
+vscode "nicollasr.vscode-streamdeck"
+vscode "pulumi.pulumi-lsp-client"
+vscode "rangav.vscode-thunder-client"
+vscode "redhat.vscode-xml"
+vscode "redhat.vscode-yaml"
+vscode "sysdig.sysdig-vscode-ext"
+vscode "unifiedjs.vscode-mdx"
+vscode "weaveworks.vscode-gitops-tools"
 
 # Mac App Store
-mas 'Byword', id: 420212497
-mas 'Giphy Capture', id: 668208984
-mas 'Keynote', id: 409183694
-mas 'MyWoosh', id: 1498889644
-mas 'Numbers', id: 409203825
-mas 'Speedtest', id: 1153157709
-mas 'Spring', id: 1508706541
-mas 'Things', id: 904280696
+mas "Battery Health 2", id: 1120214373
+mas "Hidden Bar", id: 1452453066
+mas "Speedtest", id: 1153157709
+mas "Tailscale", id: 1475387142
+mas "The Unarchiver", id: 425424353
+mas "Tunnelblick", id: 404077164
+mas "WireGuard", id: 1451685025

@@ -12,30 +12,18 @@ alias version="commit 'version'"
 # Directories
 alias dotfiles="cd $DOTFILES"
 alias library="cd $HOME/Library"
-alias projects="cd $HOME/Code"
-alias sites="cd $HOME/Herd"
+alias projects="cd $HOME/git-sources"
 
-# Laravel
-alias a="herd php artisan"
-alias fresh="herd php artisan migrate:fresh --seed"
-alias tinker="herd php artisan tinker"
-alias seed="herd php artisan db:seed"
-alias serve="herd php artisan serve"
+# Kubernetes
+alias k=kubectl
+alias ktx=kubectx
+alias kns=kubens
+alias ctx=kubens
 
-# PHP
-alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias composer="herd composer"
-alias php="herd php"
+# Okta AWS CLI
+alias gimme-aws-creds="okta-aws-cli -s 43200 --org-domain mydomain.okta.com --oidc-client-id <oidc-client-id> --aws-acct-fed-app-id <aws-app-id> --profile <aws-profile-name> --write-aws-credentials -b --aws-iam-role arn:aws:iam::<aws-account-id>:role/<role-name> --aws-iam-idp arn:aws:iam::<aws-account-id>:saml-provider/OKTA"
 
-# JS
-alias nfresh="rm -rf node_modules/ package-lock.json && npm install"
-alias watch="npm run dev"
-
-# Docker
-alias docker-composer="docker-compose"
-
-# SQL Server
-alias mssql="docker run -e ACCEPT_EULA=Y -e SA_PASSWORD=LaravelWow1986! -p 1433:1433 mcr.microsoft.com/mssql/server:2017-latest"
+alias diff-side="diff --side-by-side"
 
 # Git
 alias gs="git status"
