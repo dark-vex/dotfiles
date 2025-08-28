@@ -27,6 +27,7 @@ brew "colima"
 brew "conftest"
 brew "coreutils"
 brew "cowsay"
+brew "docker"
 brew "eksctl"
 brew "ffmpeg"
 brew "fluxcd/tap/flux"
@@ -176,6 +177,7 @@ mas "Battery Health 2", id: 1120214373
 mas "Hidden Bar", id: 1452453066
 mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
+mas "Terminus", id: 1176074088
 mas "The Unarchiver", id: 425424353
 mas "Tunnelblick", id: 404077164
 mas "WireGuard", id: 1451685025
