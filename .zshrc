@@ -74,7 +74,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt kube-ps1 zsh-interactive-cd vscode terraform gcloud 1password kubectl chucknorris brew history fzf kops kubectx oc sublime)
+plugins=(git git-prompt kube-ps1 zsh-interactive-cd vscode terraform gcloud 1password kubectl chucknorris brew history fzf kops kubectx oc sublime copyfile web-search)
 
 source $ZSH/oh-my-zsh.sh
 
