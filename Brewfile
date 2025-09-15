@@ -1,7 +1,7 @@
 # Taps
 tap "fluxcd/tap"
 tap "hashicorp/tap"
-tap "homebrew/cask-fonts"
+tap "homebrew/homebrew-cask-fonts"
 tap "homeport/tap"
 tap "otterize/otterize"
 tap "soluble-ai/kubetap"
@@ -32,7 +32,6 @@ brew "docker-compose"
 brew "eksctl"
 brew "ffmpeg"
 brew "fluxcd/tap/flux"
-brew "fluxctl"
 brew "fortune"
 brew "fzf"
 brew "ggshield"
@@ -110,8 +109,7 @@ brew "zsh"
 
 # Apps
 cask '1password'
-brew '1password-cli'
-cask "fing-cli"
+cask '1password-cli'
 cask "fing"
 cask 'firefox'
 cask "gcloud-cli"
