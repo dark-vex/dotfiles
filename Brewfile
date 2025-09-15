@@ -114,6 +114,7 @@ cask "fing"
 cask 'firefox'
 cask "gcloud-cli"
 cask 'google-chrome'
+cask 'iterm2'
 cask "sekey"
 cask "tunnelblick"
 cask 'visual-studio-code'
@@ -178,5 +179,4 @@ mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
 mas "Terminus", id: 1176074088
 mas "The Unarchiver", id: 425424353
-mas "Tunnelblick", id: 404077164
 mas "WireGuard", id: 1451685025
