@@ -117,10 +117,8 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 #rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
-cp art/Desktop.jpg "${HOME}/Desktop.jpg"
-osascript -e 'tell application "System Events"'
-osascript -e 'tell every desktop set picture to "${HOME}/Desktop.jpg"'
-osascript -e 'end tell'
+cp art/Desktop.jpg "$HOME/Desktop.jpg"
+osascript -e 'tell application "System Events" to tell every desktop to set picture to POSIX file "'"$HOME/Desktop.jpg"'"'
 osascript -e 'end tell'
 
 ###############################################################################
@@ -189,22 +187,22 @@ sudo pmset -a lidwake 1
 sudo pmset -a autorestart 1
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+# sudo systemsetup -setrestartfreeze on # Deprecated
 
 # Sleep the display after 15 minutes
-sudo pmset -a displaysleep 15
+sudo pmset -a displaysleep 5
 
 # Disable machine sleep while charging
 sudo pmset -c sleep 0
 
 # Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
+sudo pmset -b sleep 7
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
 # Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+# sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Hibernation mode
 # 0: Disable hibernation (speeds up entering sleep mode)
