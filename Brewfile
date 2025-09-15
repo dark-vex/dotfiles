@@ -1,7 +1,7 @@
 # Taps
 tap "fluxcd/tap"
 tap "hashicorp/tap"
-tap "homebrew/cask-fonts"
+tap "homebrew/homebrew-cask-fonts"
 tap "homeport/tap"
 tap "otterize/otterize"
 tap "soluble-ai/kubetap"
@@ -32,7 +32,6 @@ brew "docker-compose"
 brew "eksctl"
 brew "ffmpeg"
 brew "fluxcd/tap/flux"
-brew "fluxctl"
 brew "fortune"
 brew "fzf"
 brew "ggshield"
@@ -110,12 +109,12 @@ brew "zsh"
 
 # Apps
 cask '1password'
-brew '1password-cli'
-cask "fing-cli"
+cask '1password-cli'
 cask "fing"
 cask 'firefox'
 cask "gcloud-cli"
 cask 'google-chrome'
+cask 'iterm2'
 cask "sekey"
 cask "tunnelblick"
 cask 'visual-studio-code'
@@ -166,6 +165,7 @@ vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.vscode-serial-monitor"
 vscode "nicollasr.vscode-streamdeck"
 vscode "pulumi.pulumi-lsp-client"
+vscode "pulumi.pulumi-vscode-tools"
 vscode "rangav.vscode-thunder-client"
 vscode "redhat.vscode-xml"
 vscode "redhat.vscode-yaml"
@@ -180,5 +180,4 @@ mas "Speedtest", id: 1153157709
 mas "Tailscale", id: 1475387142
 mas "Terminus", id: 1176074088
 mas "The Unarchiver", id: 425424353
-mas "Tunnelblick", id: 404077164
 mas "WireGuard", id: 1451685025

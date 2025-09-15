@@ -19,9 +19,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "Daniele's MacBook Pro"
-sudo scutil --set HostName "Daniele's MacBook Pro"
-sudo scutil --set LocalHostName "Daniele's MacBook Pro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Daniele's MacBook Pro"
+sudo scutil --set HostName "danielesan-mbp"
+sudo scutil --set LocalHostName "danielsan-mbp"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "DanielSan-MBP"
 
 # Disable the sound effects on boot
 # sudo nvram SystemAudioVolume=" "
@@ -117,11 +117,8 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 #rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
-cp art/Desktop.jpg "${HOME}/Desktop.jpg"
-osascript -e 'tell application "System Events"'
-osascript -e 'tell every desktop set picture to "${HOME}/Desktop.jpg"'
-osascript -e 'end tell'
-osascript -e 'end tell'
+cp art/Desktop.jpg "$HOME/Desktop.jpg"
+osascript -e 'tell application "System Events" to tell every desktop to set picture to POSIX file "'"$HOME/Desktop.jpg"'"'
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -189,22 +186,22 @@ sudo pmset -a lidwake 1
 sudo pmset -a autorestart 1
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+# sudo systemsetup -setrestartfreeze on # Deprecated
 
 # Sleep the display after 15 minutes
-sudo pmset -a displaysleep 15
+sudo pmset -a displaysleep 5
 
 # Disable machine sleep while charging
 sudo pmset -c sleep 0
 
 # Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
+sudo pmset -b sleep 7
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
 # Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+# sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Hibernation mode
 # 0: Disable hibernation (speeds up entering sleep mode)
@@ -348,7 +345,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+chflags nohidden "$HOME/Library"
+xattr -d com.apple.FinderInfo "$HOME/Library" 2>/dev/null || true
 
 # Show the /Volumes folder
 # sudo chflags nohidden /Volumes
