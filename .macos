@@ -21,7 +21,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo scutil --set ComputerName "Daniele's MacBook Pro"
 sudo scutil --set HostName "danielesan-mbp"
 sudo scutil --set LocalHostName "danielsan-mbp"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Daniele's MacBook Pro"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "DanielSan-MBP"
 
 # Disable the sound effects on boot
 # sudo nvram SystemAudioVolume=" "
