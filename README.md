@@ -6,9 +6,9 @@ This repository serves as my way to help me setup and maintain my Mac. It takes 
 
 📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
 📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
-💡 - [Learn how to build your own dotfiles](https://github.com/driesvints/dotfiles#your-own-dotfiles)
+💡 - [Learn how to build your own dotfiles](https://github.com/dark-vex/dotfiles#your-own-dotfiles)
 
-If you find this repo useful, [consider sponsoring me](https://github.com/sponsors/driesvints) (a little bit)! ❤️ 
+If you find this repo useful, [consider sponsoring me](https://github.com/sponsors/dark-vex) (a little bit)! ❤️ 
 
 ## A Fresh macOS Setup
 
@@ -34,13 +34,13 @@ After backing up your old Mac you may now follow these install instructions to s
    2.2. Otherwise [generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
    ```zsh
-   curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
+   curl https://raw.githubusercontent.com/dark-vex/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
    ```
 
 3. Clone this repo to `~/.dotfiles` with:
 
     ```zsh
-    git clone --recursive git@github.com:driesvints/dotfiles.git ~/.dotfiles
+    git clone --recursive git@github.com:dark-vex/dotfiles.git ~/.dotfiles
     ```
 
 4. Run the installation with:
