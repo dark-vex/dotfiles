@@ -1,7 +1,6 @@
 # Taps
 tap "fluxcd/tap"
 tap "hashicorp/tap"
-tap "homebrew/homebrew-cask-fonts"
 tap "homeport/tap"
 tap "otterize/otterize"
 tap "soluble-ai/kubetap"
@@ -121,6 +120,7 @@ cask 'visual-studio-code'
 
 # Fonts
 cask "font-meslo-for-powerline"
+cask 'font-meslo-lg-nerd-font'
 cask "font-powerline-symbols"
 cask "font-roboto"
 
