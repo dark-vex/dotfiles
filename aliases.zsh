@@ -26,7 +26,7 @@ alias diff-side="diff --side-by-side"
 
 # Git
 alias gs="git status"
-alias gb="git branch"
+alias gb="git branch --sort=-committerdate"
 alias gc="git checkout"
 alias gl="git log --oneline --decorate --color"
 alias amend="git add . && git commit --amend --no-edit"
