@@ -107,6 +107,9 @@ brew "zsh"
 # Apps
 cask '1password'
 cask '1password-cli'
+cask 'claude'
+cask 'claude-code'
+cask 'cyberduck'
 cask "fing"
 cask 'firefox'
 cask "gcloud-cli"
