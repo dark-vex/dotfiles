@@ -59,6 +59,10 @@ Thumbs.db
 .vscode
 .vagrant/
 
+# AI #
+######################
+.claude/settings.local.json
+
 # Ignore Any Generated JSON Files
 operations/automation-script/apply.json
 operations/automation-script/configversion.json
