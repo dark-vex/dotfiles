@@ -197,8 +197,3 @@ au() {
 # ZSH Autosuggestion 2024-05-24
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-# Increase history size, moved above
-##export HISTSIZE=1000000000
-##export SAVEHIST=$HISTSIZE
-##setopt EXTENDED_HISTORY
