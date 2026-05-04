@@ -7,6 +7,10 @@ export DOTFILES=$HOME/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Add shims directory to path
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -64,7 +68,13 @@ DEFAULT_USER=$USER
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
+
+# Increase history size
+setopt EXTENDED_HISTORY
+HISTSIZE=1000000000
+SAVEHIST=$HISTSIZE
+##HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$DOTFILES
@@ -74,8 +84,7 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt kube-ps1 zsh-interactive-cd vscode terraform gcloud 1password kubectl chucknorris brew history fzf kops kubectx oc sublime copyfile web-search)
-
+plugins=(asdf git git-prompt kube-ps1 zsh-interactive-cd vscode terraform gcloud 1password kubectl chucknorris brew history fzf kops kubectx oc sublime copyfile web-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -132,7 +141,7 @@ source $ZSH/plugins/kube-ps1/kube-ps1.plugin.zsh
 RPROMPT='[%D{%f/%m/%y} %D{%K:%M:%S}]'$RPROMPT
 PROMPT='$(kube_ps1)$(tf_prompt_info)'$PROMPT
 
-# New line for ZSH 
+# New line for ZSH
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
       print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
@@ -141,7 +150,7 @@ prompt_end() {
   fi
 
   print -n "%{%f%}"
-  CURRENT_BG='' 
+  CURRENT_BG=''
 
   #Adds the new line and ➜ as the start character.
   printf "\n ➜";
@@ -156,9 +165,6 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 # Configure gopath
 export GOPATH=$HOME/go
 export PATH=$PATH:$(go env GOPATH)/bin
-
-# ASDF Kubectl version switcher
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # One Password CLI
 source ~/.config/op/plugins.sh
@@ -192,7 +198,7 @@ au() {
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# Increase history size
-export HISTSIZE=1000000000
-export SAVEHIST=$HISTSIZE
-setopt EXTENDED_HISTORY
+# Increase history size, moved above
+##export HISTSIZE=1000000000
+##export SAVEHIST=$HISTSIZE
+##setopt EXTENDED_HISTORY
