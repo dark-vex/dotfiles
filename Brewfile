@@ -26,6 +26,8 @@ brew "colima"
 brew "conftest"
 brew "coreutils"
 brew "cowsay"
+# Container image layers
+brew "dive"
 brew "docker"
 brew "docker-compose"
 brew "eksctl"
