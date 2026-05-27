@@ -73,14 +73,6 @@ setopt EXTENDED_HISTORY
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-<<<<<<< Updated upstream
-
-# Increase history size
-setopt EXTENDED_HISTORY
-HISTSIZE=1000000000
-SAVEHIST=$HISTSIZE
-=======
->>>>>>> Stashed changes
 ##HIST_STAMPS="dd/mm/yyyy"
 HIST_STAMPS="yyyy-mm-dd"
 
@@ -205,8 +197,6 @@ au() {
 # ZSH Autosuggestion 2024-05-24
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-<<<<<<< Updated upstream
-=======
 
 # Increase history size
 ##export HISTSIZE=1000000000
@@ -220,4 +210,4 @@ alias codex-local='OPENAI_API_KEY=sk-local-litellm codex'
 alias claude-qwen='ANTHROPIC_BASE_URL=http://localhost:4000 ANTHROPIC_AUTH_TOKEN=sk-local-litellm ANTHROPIC_MODEL=qwen-coder claude'
 alias claude-deepseek='ANTHROPIC_BASE_URL=http://localhost:4000 ANTHROPIC_AUTH_TOKEN=sk-local-litellm ANTHROPIC_MODEL=deepseek-thinking claude'
 alias aider-local='OPENAI_API_BASE=http://localhost:4000 OPENAI_API_KEY=sk-local aider --architect --model openai/deepseek-thinking --editor-model openai/qwen-coder --no-stream'
->>>>>>> Stashed changes
+
