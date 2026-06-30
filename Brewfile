@@ -117,7 +117,6 @@ cask 'firefox'
 cask "gcloud-cli"
 cask 'google-chrome'
 cask 'iterm2'
-cask "sekey"
 cask "tunnelblick"
 cask 'visual-studio-code'
 
