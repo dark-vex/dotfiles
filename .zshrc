@@ -124,7 +124,7 @@ export SSLKEYLOGFILE=~/.ssl-key.log
 #. $(pack completion --shell zsh)
 
 # SeKey ssh auth with touch-id
-export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
+# export SSH_AUTH_SOCK=$HOME/.sekey/ssh-agent.ssh
 
 # Git completion
 fpath=(~/.zsh $fpath)
