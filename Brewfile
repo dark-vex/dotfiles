@@ -25,6 +25,7 @@ brew "chart-testing"
 brew "colima"
 brew "conftest"
 brew "coreutils"
+brew "cosign"
 brew "cowsay"
 # Container image layers
 brew "dive"
